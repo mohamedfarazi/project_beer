@@ -1,4 +1,6 @@
 ProjectBeer::Application.routes.draw do
+  resources :subscriptions
+
   root :to => 'users#index'
   resources :user_sessions
   resources :users
