@@ -46,6 +46,6 @@ end
 
 gem "sorcery", "~> 0.8.5"
 
-group :development do
-  gem "better_errors"
-end
+# group :development do
+#   gem "better_errors"
+# end
