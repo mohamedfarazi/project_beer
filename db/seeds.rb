@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+plans = Plan.create([{name: 'Weekly', freq: '1.week'},{name: 'Bi-weekly', freq: '2.weeks'},{name: 'Monthly', freq: '1.month'} ])
