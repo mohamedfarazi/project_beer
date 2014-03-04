@@ -43,3 +43,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "sorcery", "~> 0.8.5"
+
+group :development do
+  gem "better_errors"
+end
