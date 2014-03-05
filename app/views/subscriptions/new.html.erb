@@ -1,6 +1,7 @@
 
 
 <%= form_tag '/subscriptions' do %>
+<%= render partial: "shared/form_errors", locals: {thing: @subscription} %>
 
 	<h4>Select frequency of delivery</h4>
 
