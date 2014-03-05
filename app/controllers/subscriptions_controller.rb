@@ -21,6 +21,7 @@ class SubscriptionsController < ApplicationController
 
 
 			if @subscription.save
+				UserMailer.subscription_confirm(current_user).deliver
 				redirect_to subscription_path(@subscription), :notice => "Success!"
 			else
 			  render 'new'
