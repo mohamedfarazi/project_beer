@@ -1,6 +1,7 @@
 
 
 <%= form_tag '/subscriptions' do %>
+<%= render partial: "shared/form_errors", locals: {thing: @subscription} %>
 
 	<h4>Select frequency of delivery</h4>
 
@@ -10,6 +11,10 @@
 	<%= label_tag('plan_id_'+ plan[:id].to_s, plan[:name]) %>
 	</p>
 	<% end %>
+
+	<h4>Select quantity</h4>
+
+	<%= select_tag "n_packs", options_for_select((1..10)), :prompt => "Number of 6-packs" %>
 
 	<h4>Select date of first delivery</h4>
 

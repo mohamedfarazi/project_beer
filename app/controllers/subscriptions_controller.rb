@@ -18,6 +18,7 @@ class SubscriptionsController < ApplicationController
 		@subscription.user = current_user
 		@subscription.first_delivery_date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
 		@subscription.plan_id = params[:plan_id]
+		@subscription.n_packs = params[:n_packs]
 
 
 			if @subscription.save
@@ -43,7 +44,7 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def subscr_params
-		params.require(:subscription).permit(:user_id, :plan_id, :first_delivery_date)
+		params.require(:subscription).permit(:user_id, :plan_id, :first_delivery_date, :n_packs)
 	end
 
 end
