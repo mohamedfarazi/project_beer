@@ -1,1 +1,3 @@
-<%= @subscription.id %>
+<h4>Here are the details of your subscription:</h4>
+<p>Frequency: <%=@subscription.plan.name %></p>
+<p>Begins on: <%= @subscription.first_delivery_date %></p>

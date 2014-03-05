@@ -21,7 +21,7 @@ class SubscriptionsController < ApplicationController
 
 
 			if @subscription.save
-				redirect_to subscription_path(@subscription)
+				redirect_to subscription_path(@subscription), :notice => "Success!"
 			else
 			  render 'new'
 		  end
