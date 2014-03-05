@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "beer@beer.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -22,5 +22,11 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = "http://0.0.0.0:3000/login"
     mail(to: user.email, subject: "Your account is now activated")
+  end
+
+  #User mailer to confirm their beer selection.
+  def subscription_confirm(user)
+    @user = user
+    mail(to: user.email, subject: "Thank you for subscribing!")
   end
 end
