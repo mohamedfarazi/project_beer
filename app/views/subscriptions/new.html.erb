@@ -1,0 +1,20 @@
+
+
+<%= form_tag '/subscriptions' do %>
+
+	<h4>Select frequency of delivery</h4>
+
+	<% @plans.each do |plan| %>
+	<p>
+	<%= radio_button_tag('plan_id', plan[:id]) %>
+	<%= label_tag('plan_id_'+ plan[:id].to_s, plan[:name]) %>
+	</p>
+	<% end %>
+
+	<h4>Select date of first delivery</h4>
+
+	<%= select_date first_delivery_date = Date.today%>
+
+<p><%= submit_tag "Subscribe" %></p>
+
+<% end %>

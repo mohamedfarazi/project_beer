@@ -3,9 +3,14 @@ ProjectBeer::Application.routes.draw do
   root :to => 'users#index'
   resources :user_sessions
 
-  resources :users do
-    resources :subscriptions
-  end
+  # resources :users do
+  #   resources :subscriptions
+  # end
+
+  resources :users
+  resources :subscriptions
+
+  resources :plans, :only => [:index]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
