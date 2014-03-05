@@ -11,6 +11,10 @@
 	</p>
 	<% end %>
 
+	<h4>Select quantity</h4>
+
+	<%= select_tag "n_packs", options_for_select((1..10)), :prompt => "Number of 6-packs" %>
+
 	<h4>Select date of first delivery</h4>
 
 	<%= select_date first_delivery_date = Date.today%>
