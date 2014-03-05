@@ -1,4 +1,5 @@
 ProjectBeer::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root :to => 'users#index'
   resources :user_sessions
   resources :users do
