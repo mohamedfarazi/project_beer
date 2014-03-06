@@ -1,3 +1,8 @@
-<% @users.each do |f| %>
-<%= f.plan %>
+<% if current_user.admin == true %>
+	<% @users.each do |f| %>
+	<%= f.plan %>
+	<% end %>
+
+<% else %>
+	<h1>You don't have the permissions to view this.</h1>
 <% end %>
