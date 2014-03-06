@@ -40,7 +40,7 @@
 # 	today = Date.today
 
 
-# 	# Find the next friday from today
+	# Find the next friday from today
 # 	(1..6).each do |i|
 # 		fridays[0] = (today + i.days) if (today + i.days).wday == 5
 # 	end
@@ -53,7 +53,7 @@
 
 # end
 
-# 104.times do |i|
+# 101.times do |i|
 # Subscription.create({
 # 	user_id: i+1,
 # 	plan_id: rand(1..3),
