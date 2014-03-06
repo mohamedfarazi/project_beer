@@ -1,0 +1,29 @@
+<h4>Deliveries scheduled for this Friday, <%= this_friday.strftime("%b %-d, %Y") %></h4>
+<!-- Temporary fields until we have user names & addresses -->
+<table>
+<tr>
+	<th>
+		User email
+	</th>
+	<th>
+		Number of packs
+	</th>
+</tr>
+<% upcoming(@subscriptions).each do |sub| %>
+<tr>
+	<td>
+	<%=sub.user.email%>
+	</td>
+	<td>
+	<%=  sub.n_packs %>
+	</td>
+</tr>
+
+<% end %>
+<th>
+	Total no. of packs:
+</th>
+<th>
+	<%= upcoming_totals(upcoming(@subscriptions)) %>
+</th>
+</table>

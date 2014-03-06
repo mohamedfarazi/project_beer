@@ -1,0 +1,11 @@
+<!-- Pass the object that "thing" represents from the form rendering this partial-->
+<% if thing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(thing.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% thing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

@@ -1,0 +1,4 @@
+<h4>Here are the details of your subscription:</h4>
+<p>Frequency: <%=@subscription.plan.name %></p>
+<p>Quantity: 6 x <%=@subscription.n_packs %> = <%= 6 * @subscription.n_packs%> beers</p>
+<p>Begins on: <%= @subscription.first_delivery_date %></p>
