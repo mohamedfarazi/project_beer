@@ -31,8 +31,12 @@ class UsersController < ApplicationController
       if @user.save
         format.html {
           if @user.check_postal_code
+            @user.area = true
+            @user.save
             redirect_to(user_path(@user), notice: 'User was successfully created.')
           else
+            @user.area = false
+            @user.save
             redirect_to(user_path(@user), alert: "We're sorry but you are currently outside the delivery area. But fear not! We will contact you when we have expanded to your area.")
           end
         }
