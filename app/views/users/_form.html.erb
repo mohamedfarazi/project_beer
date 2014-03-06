@@ -15,14 +15,42 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+    <%= f.label :address, "Street Address" %><br>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_name %><br>
+    <%= f.text_field :contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+
   <div class="field">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
+
   <div class="field">
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
