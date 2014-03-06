@@ -1,5 +1,5 @@
 ProjectBeer::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   root :to => 'users#index'
   resources :user_sessions
   resources :users do
@@ -7,6 +7,14 @@ ProjectBeer::Application.routes.draw do
       get :activate
     end
   end
+
+  namespace :admin do
+    resources :users, :subscriptions, :plans
+  end
+
+  resources :subscriptions
+
+  resources :plans, :only => [:index]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
