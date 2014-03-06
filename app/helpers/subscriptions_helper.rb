@@ -42,6 +42,16 @@ module SubscriptionsHelper
 		end
 
 		list
+	end
 
+	def upcoming_totals(list)
+		total = 0
+		n = list.length-1
+
+		(0..n).each do |i|
+			total += list[i][:n_packs]
+		end
+
+		total
 	end
 end
