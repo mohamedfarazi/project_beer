@@ -29,7 +29,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(:users, notice: 'User was successfully created.') }
+        format.html {
+          if @user.check_postal_code
+            redirect_to(user_path(@user), notice: 'User was successfully created.')
+          else
+            redirect_to(user_path(@user), alert: "We're sorry but you are currently outside the delivery area. But fear not! We will contact you when we have expanded to your area.")
+          end
+        }
       else
         format.html { render action: 'new' }
       end

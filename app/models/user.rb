@@ -9,4 +9,12 @@ validates :email, uniqueness: true
 has_one :subscription
 has_one :plan, through: :subscription
 
+ def check_postal_code
+ 	allowed = ["M4X", "M4Y", "M5A", "M5B", "M5E", "M5J", "M5G", "M5S", "M5T", "M5V", "M6J", "M6K", "M6G", "M6H"]
+     allowed.each do |p|
+     	return true if postal_code.include? p
+
+      end
+      false
+    end
 end
