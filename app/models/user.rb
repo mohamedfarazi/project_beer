@@ -7,7 +7,7 @@ validates :password, confirmation: true
 validates :password_confirmation, presence: true
 validates :email, uniqueness: true
 
-has_many :subscriptions
-has_many :plans, through: :subscriptions
+has_one :subscription
+has_one :plan, through: :subscription
 
 end

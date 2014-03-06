@@ -9,7 +9,7 @@ ProjectBeer::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, :subscriptions, :plans
+    resources :dashboard
   end
 
   resources :subscriptions
