@@ -62,3 +62,16 @@
 # 	})
 # end
 
+
+#------------------------------------------------------------------------------------------
+104.times do |i|
+	u = User.find(i)
+
+u.update_attributes({
+
+  name: Faker::Commerce.product_name,
+  description: Faker::Lorem.paragraph,
+  price_in_cents: rand(1000)
+  }
+)
+end
