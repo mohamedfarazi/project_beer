@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
 	before_filter :load_plans
 
 	def index
+		@subscriptions = Subscription.all
 	end
 
 	def show
@@ -16,7 +17,8 @@ class SubscriptionsController < ApplicationController
 	def create
 		@subscription = Subscription.new
 		@subscription.user = current_user
-		@subscription.first_delivery_date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+		# @subscription.first_delivery_date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+		@subscription.first_delivery_date = params[:first_delivery_date]
 		@subscription.plan_id = params[:plan_id]
 		@subscription.n_packs = params[:n_packs]
 
