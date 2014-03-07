@@ -50,3 +50,5 @@ gem "sorcery", "~> 0.8.5"
 #   gem "better_errors"
 # end
 gem "letter_opener", :group => :development
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
