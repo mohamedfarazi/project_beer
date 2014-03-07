@@ -54,3 +54,6 @@ group :development do
 	gem 'letter_opener'
 	gem 'faker'
 end
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
