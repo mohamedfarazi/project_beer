@@ -48,11 +48,8 @@ ActiveRecord::Schema.define(version: 20140306233415) do
     t.string   "phone"
     t.string   "contact_name"
     t.string   "company_name"
-<<<<<<< HEAD
     t.boolean  "area"
-=======
     t.boolean  "admin",                       default: false
->>>>>>> 8454caa7ce2c4ca300a6812062f1ad61b1bc313d
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
