@@ -1,6 +1,7 @@
 ProjectBeer::Application.routes.draw do
 
   root :to => 'users#index'
+  resources :charges
   resources :user_sessions
   resources :users do
     member do
@@ -10,6 +11,7 @@ ProjectBeer::Application.routes.draw do
 
   namespace :admin do
     resources :dashboard
+    resources :subscriptions, :only => [:index]
   end
 
   resources :subscriptions
