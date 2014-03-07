@@ -62,3 +62,19 @@
 # 	})
 # end
 
+
+#------------------------------------------------------------------------------------------
+Faker::Config.locale = 'en-ca'
+
+users = User.all
+
+	users.each do |u|
+
+		u.update_attributes({
+		address: Faker::Address.street_address,
+		postal_code: Faker::Address.postcode,
+		phone: Faker::PhoneNumber.phone_number,
+		contact_name: Faker::Name.name,
+		company_name: Faker::Company.name
+	  })
+	end

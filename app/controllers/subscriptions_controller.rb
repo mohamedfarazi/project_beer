@@ -3,11 +3,13 @@ class SubscriptionsController < ApplicationController
 	before_filter :load_plans
 
 	def index
-		@subscriptions = Subscription.all
+		# NJ: the singular here is temporary. Needs to be rewritten to show all user's subscription (active/inactive) once Mo's summary logic is sorted out
+		@subscription = current_user.subscription
 	end
 
 	def show
-		@subscription = Subscription.find(params[:id])
+		# NJ: the singular here is temporary. Needs to be rewritten to show all user's subscription (active/inactive) once Mo's summary logic is sorted out
+		@subscription = current_user.subscription
 	end
 
 	def new

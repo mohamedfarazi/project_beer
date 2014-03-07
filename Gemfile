@@ -49,8 +49,10 @@ gem "sorcery", "~> 0.8.5"
 # group :development do
 #   gem "better_errors"
 # end
-gem "letter_opener", :group => :development
+
+group :development do
+	gem 'letter_opener'
+	gem 'faker'
+end
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
-# gem "figaro", "~> 0.7.0"
