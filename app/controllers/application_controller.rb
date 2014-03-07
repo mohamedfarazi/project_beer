@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
 
 private
 	def not_authenticated
-		redirect_to main_app.login_path
+		redirect_to (main_app.login_path, notice: 'Please login first')
 	end
+
+	def require_admin
+		redirect_to denied_path unless current_user.admin
+	end
+
 
 end

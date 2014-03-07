@@ -4,7 +4,7 @@ module SubscriptionsHelper
 		fridays = []
 		today = Date.today
 		# Find the next friday from today
-		(1..6).each do |i|
+		(1..7).each do |i|
 			fridays[0] = (today + i.days) if (today + i.days).wday == 5
 		end
 
