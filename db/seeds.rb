@@ -64,14 +64,17 @@
 
 
 #------------------------------------------------------------------------------------------
-104.times do |i|
-	u = User.find(i)
+Faker::Config.locale = 'en-ca'
 
-u.update_attributes({
+users = User.all
 
-  name: Faker::Commerce.product_name,
-  description: Faker::Lorem.paragraph,
-  price_in_cents: rand(1000)
-  }
-)
-end
+	users.each do |u|
+
+		u.update_attributes({
+		address: Faker::Address.street_address,
+		postal_code: Faker::Address.postcode,
+		phone: Faker::PhoneNumber.phone_number,
+		contact_name: Faker::Name.name,
+		company_name: Faker::Company.name
+	  })
+	end
