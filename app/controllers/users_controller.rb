@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.postal_code = @user.postal_code.split.join.upcase
     respond_to do |format|
       if @user.save
         format.html {
@@ -51,6 +51,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.postal_code = @user.postal_code.split.join.upcase
+        @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render action: 'edit' }

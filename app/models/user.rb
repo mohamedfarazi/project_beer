@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-validates :password, length: {minimum: 3}
+validates :password, length: {minimum: 1}
 validates :password, confirmation: true
 validates :password_confirmation, presence: true
 validates :email, uniqueness: true
+validate :postal_code_format
 
 has_one :subscription
 has_one :plan, through: :subscription
@@ -17,4 +18,12 @@ has_one :plan, through: :subscription
       end
       false
     end
+
+	def postal_code_format
+		unless postal_code =~ /[A-Z]\d[A-Z]\d[A-Z]\d/
+			errors.add(:postal_code, "must be in the correct format.")
+		end
+
+	end
+
 end
