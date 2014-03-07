@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+	validates :password, length: {minimum: 3},  :on => :create
+	validates :password, confirmation: true,  :on => :create
+	validates :password_confirmation, presence: true,  :on => :create
 
-validates :password, length: {minimum: 3}
-validates :password, confirmation: true
-validates :password_confirmation, presence: true
+
 validates :email, uniqueness: true
 validate :postal_code_format
 
@@ -22,7 +23,7 @@ validate :postal_code_format
     end
 
 	def postal_code_format
-		unless postal_code =~ /[A-Z]\d[A-Z]\d[A-Z]\d/
+		unless postal_code.split.join.upcase =~ /[A-Z]\d[A-Z]\d[A-Z]\d/
 			errors.add(:postal_code, "must be in the correct format.")
 		end
 

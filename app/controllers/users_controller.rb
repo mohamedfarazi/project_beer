@@ -26,10 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.postal_code = @user.postal_code.split.join.upcase
-    respond_to do |format|
       if @user.save
-        format.html {
           if @user.check_postal_code
             @user.area = true
             @user.save
@@ -39,25 +36,29 @@ class UsersController < ApplicationController
             @user.save
             redirect_to(user_path(@user), alert: "We're sorry but you are currently outside the delivery area. But fear not! We will contact you when we have expanded to your area.")
           end
-        }
       else
-        format.html { render action: 'new' }
+        render action: 'new'
       end
-    end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
       if @user.update(user_params)
-        @user.postal_code = @user.postal_code.split.join.upcase
-        @user.save
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        if @user.check_postal_code
+          @user.area = true
+          @user.save
+          redirect_to(user_path(@user), notice: 'User was successfully updated.')
+        else
+          @user.area = false
+          @user.save
+          redirect_to(user_path(@user), alert: "We're sorry but your new postal code is outside the delivery area. But fear not! We will contact you when we have expanded to your area.")
+        end
+
+        # redirect_to @user, notice: 'User was successfully updated.'
       else
-        format.html { render action: 'edit' }
+        render action: 'edit'
       end
-    end
   end
 
   # DELETE /users/1
@@ -86,4 +87,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :address, :postal_code, :phone, :contact_name, :company_name, :admin)
     end
+
 end
