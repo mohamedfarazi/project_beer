@@ -26,10 +26,20 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.postal_code = @user.postal_code.split.join.upcase
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(:users, notice: 'User was successfully created.') }
+        format.html {
+          if @user.check_postal_code
+            @user.area = true
+            @user.save
+            redirect_to(user_path(@user), notice: 'User was successfully created.')
+          else
+            @user.area = false
+            @user.save
+            redirect_to(user_path(@user), alert: "We're sorry but you are currently outside the delivery area. But fear not! We will contact you when we have expanded to your area.")
+          end
+        }
       else
         format.html { render action: 'new' }
       end
@@ -41,6 +51,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.postal_code = @user.postal_code.split.join.upcase
+        @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render action: 'edit' }
