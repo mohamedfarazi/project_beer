@@ -9,9 +9,13 @@ ProjectBeer::Application.routes.draw do
     end
   end
 
+  get 'admin' => 'admin/dashboard#index'
+
   namespace :admin do
-    resources :dashboard
+    resources :dashboard, :only => [:index]
     resources :subscriptions, :only => [:index]
+    resources :users, :only => [:index]
+    get 'users/recent' => 'users#recent'
   end
 
   resources :subscriptions
