@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-      redirect_to users_url
+      redirect_to :back
   end
 
   def activate
