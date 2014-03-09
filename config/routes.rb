@@ -16,6 +16,7 @@ ProjectBeer::Application.routes.draw do
     resources :subscriptions, :only => [:index]
     resources :users, :only => [:index]
     get 'users/recent' => 'users#recent'
+    get 'subscriptions/recent' => 'subscriptions#recent'
   end
 
   resources :subscriptions

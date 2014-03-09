@@ -1,4 +1,3 @@
-<!-- NJ's note: change contact_name to nickname later -->
 <h2>Hi, <%= current_user.contact_name %></h2>
 <div>
 <h4> <%= link_to count_new_users, admin_users_recent_path %> new users registered in the past week</h4>
@@ -6,8 +5,8 @@
 </div>
 
 <div>
-<h4> <%= count_new_subs  %> new subscriptions set up in the past week </h4>
-<p> <%= count_all_subs %> total active subscriptions: <%= count_w_subs %> weekly, <%= count_b_subs %> bi-weekly and <%= count_m_subs  %> monthly </p>
+<h4> <%= link_to count_new_subs, admin_subscriptions_recent_path   %> new subscriptions set up in the past week </h4>
+<p> <%= link_to count_all_subs, admin_subscriptions_path %> total active subscriptions: <%= count_w_subs %> weekly, <%= count_b_subs %> bi-weekly and <%= count_m_subs  %> monthly </p>
 </div>
 
 

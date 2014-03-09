@@ -1,4 +1,4 @@
-<%= link_to 'Register new user', new_user_path %> | <%= link_to 'Back', :back %>
+<%= link_to 'Back', :back %> | <%= link_to "All users", admin_users_path %>
 
 <h2>Recently registered: <%= count_new_users %> users + <%= count_new_admins %> admins since <%= (Date.today - 1.week).strftime("%b %-d, %Y") %> </h2>
 

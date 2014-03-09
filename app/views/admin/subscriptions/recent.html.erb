@@ -1,0 +1,5 @@
+<%= link_to 'Back', :back %> | <%= link_to "All subscriptions", admin_subscriptions_path %>
+
+<h2>Recently set up: <%= count_new_subs %> subscriptions since <%= (Date.today - 1.week).strftime("%b %-d, %Y") %> </h2>
+
+<%= render 'subs_table' %>
