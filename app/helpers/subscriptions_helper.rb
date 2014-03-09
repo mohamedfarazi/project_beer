@@ -50,16 +50,16 @@ module SubscriptionsHelper
 		fri
 	end
 
-	def upcoming(subs)
+	def upcoming_deliveries
 		# the list of subscriptions with deliveries scheduled for this week
 		list = []
 		# for each active subscription, check if their next delivery is this week
-		subs.each do |sub|
+		@subscriptions.each do |sub|
 			# 1. set next_date to their first first_delivery_date
 			next_date = sub.first_delivery_date
 			# 2. keep adding their plan's freq interval until next_date is no longer in the past
 			while next_date < Date.today do
-				next_date += sub.plan.freq
+				next_date += eval(sub.plan.freq)
 			end
 			# 3. if their next_date is this_friday, add them to the list of this week's deliveries
 			list << sub if next_date == this_friday
@@ -78,4 +78,5 @@ module SubscriptionsHelper
 
 		total
 	end
+
 end

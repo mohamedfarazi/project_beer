@@ -8,4 +8,5 @@ class Subscription < ActiveRecord::Base
 
 	scope :recent, -> {where("created_at >= ?", Date.today - 1.week)}
 	scope :recent_first, -> { order(created_at: :desc) }
+
 end
