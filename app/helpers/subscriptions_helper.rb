@@ -1,4 +1,28 @@
 module SubscriptionsHelper
+
+	def count_new_subs
+		Subscription.recent.count
+	end
+
+	def count_all_subs
+		Subscription.all.count
+	end
+
+	def count_w_subs
+		id = Plan.where(freq: "1.week").take.id
+		Subscription.where(plan_id: id).count
+	end
+
+	def count_b_subs
+		id = Plan.where(freq: "2.weeks").take.id
+		Subscription.where(plan_id: id).count
+	end
+
+	def count_m_subs
+		id = Plan.where(freq: "1.month").take.id
+		Subscription.where(plan_id: id).count
+	end
+
 	# This generates a list of the next 10 fridays for the drop-down menu on new subscription form
 	def fridays_dropdown
 		fridays = []

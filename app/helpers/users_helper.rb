@@ -1,10 +1,10 @@
 module UsersHelper
 
-	def count_new
+	def count_new_users
 		User.recent.where(admin: false).count
 	end
 
-	def count_all
+	def count_all_users
 	 User.where(admin: false).count
 	end
 
