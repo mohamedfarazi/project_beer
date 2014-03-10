@@ -8,7 +8,7 @@
 	<% @plans.each do |plan| %>
 	<p>
 	<%= radio_button_tag('plan_id', plan[:id]) %>
-	<%= label_tag('plan_id_'+ plan[:id].to_s, plan[:name]) %>
+	<%= label_tag('plan_id_'+ plan[:id].to_s, plan[:name] + " // #{number_to_currency(plan[:amount_in_cents].to_f/100)} Monthly Fee") %>
 	</p>
 	<% end %>
 

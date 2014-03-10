@@ -1,10 +1,11 @@
 class ChargesController < ApplicationController
 	def new
+		@plan = Plan.find(params[:plan_id])
 	end
 
 	def create
 	  # Amount in cents
-	  @amount = 500
+	  @amount = @plan.amount_in_cents
 
 	  customer = Stripe::Customer.create(
 	    :email => 'projectbeer@beer.com',

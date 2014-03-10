@@ -8,7 +8,7 @@
 
 #------------------------------REAL SEEDS --------------------------------------
 # These are the actual plans that need to be seeded into the DB when implementing for realz
-# plans = Plan.create([{name: 'Weekly', freq: '1.week'},{name: 'Bi-weekly', freq: '2.weeks'},{name: 'Monthly', freq: '1.month'} ])
+plans = Plan.create([{name: 'Weekly', freq: '1.week', amount_in_cents: 7000},{name: 'Bi-weekly', freq: '2.weeks', amount_in_cents: 6000},{name: 'Monthly', freq: '1.month', amount_in_cents: 5000} ])
 
 
 
@@ -64,17 +64,17 @@
 
 
 #------------------------------------------------------------------------------------------
-Faker::Config.locale = 'en-ca'
+# Faker::Config.locale = 'en-ca'
 
-users = User.all
+# users = User.all
 
-	users.each do |u|
+# 	users.each do |u|
 
-		u.update_attributes({
-		address: Faker::Address.street_address,
-		postal_code: Faker::Address.postcode,
-		phone: Faker::PhoneNumber.phone_number,
-		contact_name: Faker::Name.name,
-		company_name: Faker::Company.name
-	  })
-	end
+# 		u.update_attributes({
+# 		address: Faker::Address.street_address,
+# 		postal_code: Faker::Address.postcode,
+# 		phone: Faker::PhoneNumber.phone_number,
+# 		contact_name: Faker::Name.name,
+# 		company_name: Faker::Company.name
+# 	  })
+# end
