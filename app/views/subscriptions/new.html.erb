@@ -5,7 +5,8 @@
 	<% @plans.each do |plan| %>
 		<%= label_tag nil, :class => 'block' do %>
 		<!--The below code references the subscription model, and associates the radio button ID to each button. This is needed because they reside in different models-->
-			<%= radio_button_tag('subscription[plan_id]', plan[:id]) %> <%= "#{plan.name} // #{number_to_currency(plan[:amount_in_cents].to_f / 100.0)} Monthly Fee" %>
+			<%= radio_button_tag('subscription[plan_id]', plan[:id]) %>
+			<%= "#{plan.name} // #{number_to_currency(plan[:amount_in_cents].to_f / 100.0)} Monthly Fee" %>
 		<% end %>
 	<% end %>
 
@@ -25,3 +26,4 @@
 	</div>
 <% end %>
 
+<!-- ('input:radio:checked').val(); -->
