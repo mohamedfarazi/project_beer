@@ -33,6 +33,8 @@
   </tbody>
 </table>
 
+<%= link_to "Generate manifest", admin_deliveries_manifest_create_path %>
+
 <% else %>
 <h4>There are no deliveries scheduled for this Friday, <%= this_friday.strftime("%b %-d, %Y") %></h4>
 <% end %>
