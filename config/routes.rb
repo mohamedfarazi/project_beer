@@ -9,9 +9,15 @@ ProjectBeer::Application.routes.draw do
     end
   end
 
+  get 'admin' => 'admin/dashboard#index'
+
   namespace :admin do
-    resources :dashboard
+    resources :dashboard, :only => [:index]
     resources :subscriptions, :only => [:index]
+    resources :users, :only => [:index]
+    get 'users/recent' => 'users#recent'
+    get 'subscriptions/recent' => 'subscriptions#recent'
+    get 'subscriptions/upcoming' => 'subscriptions#upcoming'
   end
 
   resources :subscriptions
@@ -20,6 +26,8 @@ ProjectBeer::Application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get 'denied' => 'pages#denied'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

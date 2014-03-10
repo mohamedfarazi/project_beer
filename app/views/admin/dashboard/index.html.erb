@@ -1,8 +1,16 @@
-<% if current_user.admin == true %>
-	<% @users.each do |f| %>
-	<%= f.plan %>
-	<% end %>
+<h2>Hi, <%= current_user.contact_name %></h2>
+<div>
+<h4> <%= link_to count_new_users, admin_users_recent_path %> new users registered in the past week</h4>
+<p> <%= link_to count_all_users, admin_users_path %> users total (excluding admins)</p>
+</div>
 
-<% else %>
-	<h1>You don't have the permissions to view this.</h1>
-<% end %>
+<div>
+<h4> <%= link_to count_new_subs, admin_subscriptions_recent_path   %> new subscriptions set up in the past week </h4>
+<p> <%= link_to count_all_subs, admin_subscriptions_path %> total active subscriptions: <%= count_w_subs %> weekly, <%= count_b_subs %> bi-weekly and <%= count_m_subs  %> monthly </p>
+</div>
+
+
+<div>
+<h4> <%= link_to upcoming_deliveries.length, admin_subscriptions_upcoming_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
+<p> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)</p>
+</div>

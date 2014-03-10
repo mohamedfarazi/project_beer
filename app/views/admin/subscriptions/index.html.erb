@@ -1,34 +1,5 @@
-<% if @subscriptions.length > 0 %>
-	<h4>Deliveries scheduled for this Friday, <%= this_friday.strftime("%b %-d, %Y") %></h4>
-	<!-- Temporary fields until we have user names & addresses -->
-	<table>
-	<tr>
-		<th>
-			Company
-		</th>
-		<th>
-			Number of packs
-		</th>
-	</tr>
-	<% upcoming(@subscriptions).each do |sub| %>
-	<tr>
-		<td>
-		<%=sub.user.company_name%>
-		</td>
-		<td>
-		<%=  sub.n_packs %>
-		</td>
-	</tr>
+<%= link_to 'Back', :back %> | <%= link_to "Recent subscriptions only", admin_subscriptions_recent_path   %>
 
-	<% end %>
-	<th>
-		Total no. of packs:
-	</th>
-	<th>
-		<%= upcoming_totals(upcoming(@subscriptions)) %>
-	</th>
-	</table>
+<h2>Displaying all <%= count_all_subs %> active subscriptions</h2>
 
-<% else %>
-<h4>There are no deliveries scheduled for this Friday, <%= this_friday.strftime("%b %-d, %Y") %></h4>
-<% end %>
+<%= render 'subs_table' %>

@@ -6,7 +6,11 @@ skip_before_filter :require_login, except:[:destroy]
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:users, notice: 'Login successful')
+      if @user.admin
+        redirect_to admin_dashboard_index_path
+      else
+        redirect_back_or_to(:root, notice: 'Login successful')
+      end
     else
       flash.now[:alert] = "Login failed"
       render action: "new"
@@ -15,6 +19,6 @@ skip_before_filter :require_login, except:[:destroy]
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Logged out!')
+    redirect_to(:root, notice: 'Logged out!')
   end
 end
