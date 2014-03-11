@@ -3,11 +3,12 @@ class User < ActiveRecord::Base
 
 	has_one :subscription
 	has_one :plan, through: :subscription
+	has_many :deliveries
 
 	validates :password, length: {minimum: 3},  :on => :create
 	validates :password, confirmation: true,  :on => :create
 	validates :password_confirmation, presence: true,  :on => :create
-	validates :email, uniqueness: true
+	validates :email, uniqueness: { case_sensitive: false }
 
 	scope :recent, -> {where("created_at >= ?", Date.today - 1.week)}
 	scope :recent_first, -> { order(created_at: :desc) }
