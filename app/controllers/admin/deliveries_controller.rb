@@ -37,7 +37,15 @@ class Admin::DeliveriesController < ApplicationController
 	end
 
 	def delivered
+		@deliveries = params[:delivery]
 
+		@deliveries.each do |d|
+			delivery = Delivery.find(d[0])
+			delivery.update_attributes(d[1])
+		end
+		redirect_to admin_dashboard_index_path, :notice => "Success!"
 	end
 
 end
+
+# "delivery"=>{"1"=>{"delivered"=>"1"}, "2"=>{"delivered"=>"1"}, "3"=>{"delivered"=>"1"}, "4"=>{"delivered"=>"1"}, "5"=>{"delivered"=>"1"}, "6"=>{"delivered"=>"1"}, "7"=>{"delivered"=>"1"}, "8"=>{"delivered"=>"1"}, "9"=>{"delivered"=>"1"}, "10"=>{"delivered"=>"1"}, "11"=>{"delivered"=>"1"}, "12"=>{"delivered"=>"1"}, "13"=>{"delivered"=>"1"}}
