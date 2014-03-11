@@ -19,6 +19,7 @@ ProjectBeer::Application.routes.draw do
     get 'deliveries/upcoming' => 'deliveries#upcoming'
     get 'deliveries/manifest_create' => 'deliveries#manifest_create'
     get 'deliveries/manifest' => 'deliveries#manifest'
+    post 'deliveries/manifest' => 'deliveries#delivered'
     get 'users/recent' => 'users#recent'
     get 'subscriptions/recent' => 'subscriptions#recent'
   end

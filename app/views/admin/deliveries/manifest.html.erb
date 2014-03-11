@@ -1,0 +1,56 @@
+<%= select_tag :expected_date, options_for_select(past_delivery_dates.map{ |f| [f.strftime("%a. %b %-d, %Y")] }) %>
+
+<h4>Delivery manifest for <%= params[:expected_date]%></h4>
+
+	<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Address</th>
+      <th>Phone #</th>
+      <th>Contact name</th>
+      <th>Special instructions</th>
+      <th># packs</th>
+      <th><%= check_box_tag "selectAll" %>Check / Uncheck All</th>
+    </tr>
+  </thead>
+
+ <%= form_for 'delivery' do |f| %>
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.user.company_name %></td>
+        <td><%= delivery.user.address %></td>
+        <td><%= delivery.user.phone %></td>
+        <td><%= delivery.user.contact_name %></td>
+        <td></td>
+        <td><%= delivery.subscription.n_packs %></td>
+        <td>
+        		<%= f.hidden_field(delivery.id) %>
+        		<%= f.check_box :delivered %>
+        	<% end %>
+        </td>
+      </tr>
+
+  </tbody>
+</table>
+<%= f.submit "Checked items have been delivered" %>
+<% end %>
+
+
+
+<script type='text/javascript'>
+    $('#selectAll').click(function() {
+		   if (this.checked) {
+		       $(':checkbox').each(function() {
+		           this.checked = true;
+		           this.value = 1;
+		       });
+		   } else {
+		      $(':checkbox').each(function() {
+		           this.checked = false;
+		           this.value = 0;
+		       });
+		   }
+		});
+</script>

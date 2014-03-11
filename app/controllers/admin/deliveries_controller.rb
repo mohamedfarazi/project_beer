@@ -1,5 +1,6 @@
 class Admin::DeliveriesController < ApplicationController
 	include Admin::SubscriptionsHelper
+	before_filter :require_admin
 
 	def upcoming
 		@subscriptions = Subscription.all
@@ -28,10 +29,14 @@ class Admin::DeliveriesController < ApplicationController
 
 		end
 
-		redirect_to admin_deliveries_manifest_path
+		redirect_to admin_deliveries_manifest_path(:expected_date => this_friday)
 	end
 
-	def manifest_show
+	def manifest
+		@deliveries = Delivery.where("expected_date = ?", params[:expected_date])
+	end
+
+	def delivered
 
 	end
 
