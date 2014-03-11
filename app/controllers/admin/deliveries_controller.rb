@@ -33,7 +33,7 @@ class Admin::DeliveriesController < ApplicationController
 	end
 
 	def manifest
-		@deliveries = Delivery.where("expected_date = ?", params[:expected_date])
+		@deliveries = Delivery.where("expected_date = ?", params[:expected_date]).by_postcode
 	end
 
 	def delivered
