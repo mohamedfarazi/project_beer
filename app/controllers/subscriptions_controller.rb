@@ -17,21 +17,34 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def create
-		@subscription = Subscription.new
-		@subscription.user = current_user
-		# @subscription.first_delivery_date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
-		@subscription.first_delivery_date = params[:first_delivery_date]
-		@subscription.plan_id = params[:plan_id]
-		@subscription.n_packs = params[:n_packs]
+		@plan = Plan.find(params[:subscription][:plan_id])
 
+	  customer = Stripe::Customer.create(
+	    :email => current_user.email,
+	    :card  => params[:stripeToken]
+	  )
 
-			if @subscription.save
-				UserMailer.subscription_confirm(current_user).deliver
-				redirect_to new_charge_path(plan_id: @subscription.plan_id)
-				# redirect_to subscription_path(@subscription), :notice => "Success!"
-			else
-			  render 'new'
-		  end
+	  charge = Stripe::Charge.create(
+	    :customer    => customer.id,
+	    :amount      => @plan.amount_in_cents,
+	    :description => 'Rails Stripe customer',
+	    :currency    => 'usd'
+	  )
+
+		@subscription = current_user.build_subscription(subscr_params)
+
+		if @subscription.save
+			UserMailer.subscription_confirm(current_user).deliver
+			redirect_to subscription_path(@subscription)
+
+			# redirect_to subscription_path(@subscription), :notice => "Success!"
+		else
+		  render 'new'
+	  end
+
+	rescue Stripe::CardError => e
+	  flash[:error] = e.message
+	  redirect_to charges_path
 	end
 
 	def edit

@@ -11,6 +11,6 @@
 
 
 <div>
-<h4> <%= link_to upcoming_deliveries.length, admin_subscriptions_upcoming_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
+<h4> <%= link_to upcoming_deliveries.length, admin_deliveries_upcoming_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
 <p> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)</p>
 </div>
