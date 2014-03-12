@@ -28,6 +28,8 @@ ProjectBeer::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   get 'denied' => 'pages#denied'
+  get 'goodbye' => 'pages#goodbye'
+  get 'welcome' => 'pages#welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140307204658) do
 
   # These are extensions that must be enabled in order to support this database
@@ -48,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140307204658) do
     t.string   "phone"
     t.string   "contact_name"
     t.string   "company_name"
-    t.boolean  "admin",                       default: false
     t.boolean  "area"
+    t.boolean  "admin",                       default: false
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
