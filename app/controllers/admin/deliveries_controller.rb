@@ -2,9 +2,6 @@ class Admin::DeliveriesController < ApplicationController
 	include Admin::SubscriptionsHelper
 	before_filter :require_admin
 
-	def upcoming
-		@subscriptions = Subscription.all
-	end
 
 	def manifest_create
 		@subscriptions = Subscription.all
@@ -29,11 +26,11 @@ class Admin::DeliveriesController < ApplicationController
 
 		end
 
-		redirect_to admin_deliveries_manifest_path(:expected_date => this_friday)
+		redirect_to admin_deliveries_manifest_path(:expected_date => this_friday )
 	end
 
 	def manifest
-		@deliveries = Delivery.where("expected_date = ?", params[:expected_date]).by_postcode
+		@deliveries = Delivery.by_postcode.where("expected_date = ?", params[:expected_date])
 	end
 
 	def delivered
@@ -47,5 +44,3 @@ class Admin::DeliveriesController < ApplicationController
 	end
 
 end
-
-# "delivery"=>{"1"=>{"delivered"=>"1"}, "2"=>{"delivered"=>"1"}, "3"=>{"delivered"=>"1"}, "4"=>{"delivered"=>"1"}, "5"=>{"delivered"=>"1"}, "6"=>{"delivered"=>"1"}, "7"=>{"delivered"=>"1"}, "8"=>{"delivered"=>"1"}, "9"=>{"delivered"=>"1"}, "10"=>{"delivered"=>"1"}, "11"=>{"delivered"=>"1"}, "12"=>{"delivered"=>"1"}, "13"=>{"delivered"=>"1"}}

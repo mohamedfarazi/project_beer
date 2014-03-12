@@ -11,6 +11,14 @@
 
 
 <div>
-<h4> <%= link_to upcoming_deliveries.length, admin_deliveries_upcoming_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
-<p> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)</p>
+<h4> <%= link_to upcoming_deliveries.length, admin_deliveries_manifest_create_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
+<p> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)<button type="button"><%= link_to "Generate manifest", admin_deliveries_manifest_create_path %></button></p>
+</div>
+
+<div>
+	<p>Or view an earlier manifest:</p>
+	<%= form_tag 'deliveries/manifest', method: :get do %>
+		<%= select_tag :expected_date, options_for_select(past_delivery_dates.map{ |f| [f.strftime("%a. %b %-d, %Y"), f] })%>
+		<%= submit_tag "Go" %>
+		<% end %>
 </div>
