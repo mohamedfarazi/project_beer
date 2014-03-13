@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  subscription_id: MyString
+  expected_date: 2014-03-10
+  delivered: false
+  notes: MyText
+
+two:
+  user_id: MyString
+  subscription_id: MyString
+  expected_date: 2014-03-10
+  delivered: false
+  notes: MyText
