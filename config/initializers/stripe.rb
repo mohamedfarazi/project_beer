@@ -1,6 +1,6 @@
 Rails.configuration.stripe = {
-	:publishable_key => 'pk_test_m8oTRM7hCHFrzE20ecJOLqWv',
-	:secret_key => 'sk_test_J0goqaBfrdlBeXug3M1anLTV'
+	:publishable_key => Figaro.env.stripe_publishable_key,
+	:secret_key => Figaro.env.stripe_secret_key
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]

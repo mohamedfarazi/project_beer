@@ -55,4 +55,6 @@ group :development do
 	gem 'faker'
 end
 
+gem "figaro", "~> 0.7.0"
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
