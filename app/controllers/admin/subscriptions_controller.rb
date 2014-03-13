@@ -10,8 +10,4 @@ class Admin::SubscriptionsController < ApplicationController
 		@subscriptions = Subscription.recent.recent_first
 	end
 
-	def upcoming
-		@subscriptions = Subscription.all
-	end
-
 end

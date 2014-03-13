@@ -1,0 +1,70 @@
+/*GRID SYSTEM*/
+* {
+	margin: 0;
+	padding: 0;
+	/*Content box: padding, border & margin add to the size of the box
+	Border box: the size of the border is the outer limit*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*to set relative sizes, it must be wrapped in a fixed-width parent*/
+.frame {
+	width: 100%;
+}
+
+.col1 { width: 100%;}
+.col2 { width: 50%;}
+.col3 { width: 33.3333%;}
+.col4 { width: 25%;}
+.col66 { width: 66.666%;}
+
+/*advanced selector pattern-matches all classes with 'col' in name*/
+[class*='col'] {
+	float: left;
+	padding: 0.3em;
+}
+
+/*advanced selector :after clears the floating blocks, instead of adding empty content in html*/
+.frame:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/*********************************************************************************************/
+/* CUSTOM STYLES */
+
+body {
+	background-color: $orange;
+}
+
+.frame {
+	width: 1100px;
+	margin: 0 auto; /*this will center*/
+}
+
+.main-content {
+	text-align: left;
+	margin-top: 20px;
+	padding: 20px 0;
+	background-color: $white;
+	@include orange-headers;
+}
+
+.tc {
+	text-align: center;
+}
+
+.form-label {
+	padding: 10px 0 0 0 ;
+}
+
+select {
+	@extend body;
+	background-color: $white;
+	font-style: italic;
+	border: dashed 1px $orange;
+	margin-top: 20px;
+}

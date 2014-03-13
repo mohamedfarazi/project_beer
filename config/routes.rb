@@ -15,9 +15,13 @@ ProjectBeer::Application.routes.draw do
     resources :dashboard, :only => [:index]
     resources :subscriptions, :only => [:index]
     resources :users, :only => [:index]
+    resources :deliveries, :only => [:new, :create]
+    get 'deliveries/upcoming' => 'deliveries#upcoming'
+    get 'deliveries/manifest_create' => 'deliveries#manifest_create'
+    get 'deliveries/manifest' => 'deliveries#manifest'
+    post 'deliveries/manifest' => 'deliveries#delivered'
     get 'users/recent' => 'users#recent'
     get 'subscriptions/recent' => 'subscriptions#recent'
-    get 'subscriptions/upcoming' => 'subscriptions#upcoming'
   end
 
   resources :subscriptions
@@ -28,6 +32,8 @@ ProjectBeer::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   get 'denied' => 'pages#denied'
+  get 'goodbye' => 'pages#goodbye'
+  get 'welcome' => 'pages#welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

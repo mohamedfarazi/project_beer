@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
 
 	before_filter :load_plans
+	skip_before_filter :require_login, only:[:new]
 
 	def index
 		# NJ: the singular here is temporary. Needs to be rewritten to show all user's subscription (active/inactive) once Mo's summary logic is sorted out
@@ -59,7 +60,7 @@ class SubscriptionsController < ApplicationController
 	private
 
 	def load_plans
-		@plans = Plan.all
+		@plans = Plan.all.by_price
 	end
 
 	def subscr_params
