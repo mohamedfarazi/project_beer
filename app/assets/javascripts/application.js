@@ -10,6 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require modernizr.custom
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing.min
+//= require jquery.debouncedresize
+//= require waypoints.min
+//= require cbpFixedScrollLayout
 //= require_tree .

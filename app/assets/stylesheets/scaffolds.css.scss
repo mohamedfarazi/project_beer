@@ -1,13 +1,12 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "helvetica neue", helvetica, sans-serif, arial;
   font-size: 13px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -29,11 +28,6 @@ a {
   }
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
 
 #notice {
   color: green;
@@ -66,4 +60,69 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+
+.button {
+  -moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+  box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
+  background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+  background-color:#b8e356;
+  -webkit-border-top-left-radius:0px;
+  -moz-border-radius-topleft:0px;
+  border-top-left-radius:0px;
+  -webkit-border-top-right-radius:0px;
+  -moz-border-radius-topright:0px;
+  border-top-right-radius:0px;
+  -webkit-border-bottom-right-radius:0px;
+  -moz-border-radius-bottomright:0px;
+  border-bottom-right-radius:0px;
+  -webkit-border-bottom-left-radius:0px;
+  -moz-border-radius-bottomleft:0px;
+  border-bottom-left-radius:0px;
+  text-indent:0;
+  border:1px solid #83c41a;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:65px;
+  line-height:65px;
+  width:131px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #86ae47;
+  text-align: center;
+  margin: 0 auto;
+}
+.button:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
+  background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+  background-color:#a5cc52;
+}.button:active {
+  position:relative;
+  top:1px;
+}
+
+.name {
+  color: #fff;
+}
+
+.intro {
+  color: #ff9900;
+  font-size: 72px;
+  font-weight: 100;
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
 }

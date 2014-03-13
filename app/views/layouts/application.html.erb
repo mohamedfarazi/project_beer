@@ -2,28 +2,15 @@
 <html>
 <head>
   <title>ProjectBeer</title>
+  	<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag "application", media: "all"%>
   <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="nav">
-  <%= link_to "Home", root_path %> |
-  <% if current_user %>
-    <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
-    <%= link_to "Logout", :logout, method: :post %>
-    <% if current_user.admin %>
-     | <%= link_to "Admin Dashboard", admin_dashboard_index_path %>
-    <% end %>
-  <% else %>
-    <%= link_to "Register", new_user_path %> |
-    <%= link_to "Login", :login %>
-  <% end %>
-</div>
-<div>
-  <p id="notice"><%= flash[:notice] %></p>
-  <p id="alert"><%= flash[:alert] %></p>
-</div>
+
 <%= yield %>
 
 </body>
