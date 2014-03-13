@@ -60,7 +60,7 @@ class SubscriptionsController < ApplicationController
 	private
 
 	def load_plans
-		@plans = Plan.all
+		@plans = Plan.all.by_price
 	end
 
 	def subscr_params
