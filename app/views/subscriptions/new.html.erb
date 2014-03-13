@@ -1,30 +1,38 @@
-<%= render 'users/navigation' %>
-<%= form_for @subscription do |f| %>
-	<%= render partial: "shared/form_errors", locals: {thing: @subscription} %>
-	<h4>Select frequency of delivery</h4>
+<div class="container">
+<div class="frame">
+<div class="col1 main-content tc">
+		<h1>Subscription Plans</h1>
+		<p>Choose weekly, bi-weekly or monthly beer drop-offs.</p>
+		<p>We'll deliver your stuff on Fridays. Each delivery includes six large-format (650-750mL) bottles. </p>
+		<p>Extra six-packs can be added to any plan at a price of $60 per 6 bottles per week.</p>
+		</div>
 
-	<% @plans.each do |plan| %>
-		<%= label_tag nil, :class => 'block' do %>
-		<!--The below code references the subscription model, and associates the radio button ID to each button. This is needed because they reside in different models-->
-			<%= radio_button_tag('subscription[plan_id]', plan[:id]) %>
-			<%= "#{plan.name} // #{number_to_currency(plan[:amount_in_cents].to_f / 100.0)} Monthly Fee" %>
+		<% @plans.each do |plan| %>
+			<%= form_for @subscription do |f| %>
+			<%= render partial: "shared/form_errors", locals: {thing: @subscription} %>
+			<div class="col3 border-cols">
+			<h4 class="tc"><sup>$</sup><span class="price"><%= (plan[:amount_in_cents].to_f / 100.0).round %></span><span class="per-month">/month</span></h4>
+			<h5 class="tc plan-name"><%= plan.name %></h5>
+				<div class="plan-desc">
+				<p>
+				<% if plan.freq == '1.month' %>
+					Once-a-month delivery of one variety six-pack. Coolers may be rented before delivery.
+					<% multiplier = 1 %>
+				<% elsif plan.freq == '2.weeks' %>
+					Gives you half price cooler rental if needed, and twice-monthly delivery of one variety six-pack.
+					<% multiplier = 2 %>
+				<% elsif plan.freq == '1.week' %>
+				 Four times a month (duh). Base plan comes with complimentary cooler loan if needed, and one variety six-pack.
+				 <% multiplier = 4 %>
+				<% end %>
+				<p>
+				<p>Additional six-packs can be added using the drop-down menu below.</p>
+				<%= f.select :n_packs, options_for_select((1..6).map{ |n| ["#{n} (+ $#{(n-1) * 60 * multiplier})", n] }), :prompt => "Select total number of packs"%>
+				</div>
+			</div>
 		<% end %>
-	<% end %>
+		<% end %>
 
-	<h4>Select quantity</h4>
 
-	<%= f.select :n_packs, options_for_select((1..10)), :prompt => "Number of 6-packs" %>
-
-	<h4>Select date of first delivery</h4>
-
-	<%= f.select :first_delivery_date, options_for_select(fridays_dropdown.map{ |f| [f.strftime("%a. %b %-d, %Y")] }), :prompt => "Choose an upcoming Friday"%>
-
-	<div id="stripe-checkout">
-		<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-		data-description="A month's subscription"
-		data-amount="6000" data-email="<%= current_user.email %>"></script>
-	</div>
-<% end %>
-
-<!-- ('input:radio:checked').val(); -->
+</div>
+</div>

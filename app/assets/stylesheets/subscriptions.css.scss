@@ -1,0 +1,31 @@
+.border-cols {
+	background-color: $white;
+	border: solid 1px;
+	border-color: $light-gray;
+	color: $med-gray;
+}
+
+.price {
+	font-size: 220%;
+	padding: 2px;
+	color: $orange;
+}
+
+.plan-name {
+	font-size: 130%;
+	color: $orange;
+}
+
+.plan-desc {
+	padding: 10px 0;
+	width: 80%;
+	margin: auto;
+	text-align:center;
+	p {
+		text-align: justify;
+		padding-top: 5px;
+		color: $dark-gray;
+	}
+}
+
+
