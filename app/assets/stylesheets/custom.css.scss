@@ -63,8 +63,22 @@ body {
 
 select {
 	@extend body;
-	background-color: $white;
+	background-color: $light-gray;
 	font-style: italic;
-	border: dashed 1px $orange;
-	margin-top: 20px;
+	border: solid 1px $orange;
+	margin: 10px 0 20px 0;
+	min-width: 225px;
+}
+
+.padded-div {
+	padding: 20px;
+}
+
+.upborder-div {
+	@extend tc;
+	padding-top: 5px;
+	border-top: dotted 1px;
+	border-color: $light-gray;
+	width: 80%;
+	margin:auto;
 }
