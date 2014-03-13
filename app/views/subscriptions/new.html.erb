@@ -27,7 +27,19 @@
 				<% end %>
 				<p>
 				<p>Additional six-packs can be added using the drop-down menu below.</p>
-				<%= f.select :n_packs, options_for_select((1..6).map{ |n| ["#{n} (+ $#{(n-1) * 60 * multiplier})", n] }), :prompt => "Select total number of packs"%>
+				</div>
+				<div class="upborder-div">
+				<p><strong>Select number of packs</strong></p>
+				<%= f.select :n_packs, options_for_select((1..6).map{ |n| [n==1 ? n : "#{n} ($#{(n-1) * 60 * multiplier} extra)", n] }, 1) %>
+				<% if current_user %>
+				<p><strong>Select date of first delivery</strong></p>
+				<%= f.select :first_delivery_date, options_for_select(fridays_dropdown.map{ |f| [f.strftime("%a. %b %-d, %Y")] }), :prompt => "Choose an upcoming Friday"%>
+
+				<% else %>
+					<div class="padded-div">
+					<button class="button"><%= link_to "Register & subscribe" , new_user_path %></button>
+					</div>
+				<% end %>
 				</div>
 			</div>
 		<% end %>
