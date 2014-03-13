@@ -16,9 +16,6 @@ $(document).ready(function(){
 	};
 
 	cbpFixedScrollLayout.init( options );
-	// setTimeout( function() {
-	// 	cbpFixedScrollLayout.init();
-	// }, 5000);
 });
 
 jQuery(document).ready(function($) {
