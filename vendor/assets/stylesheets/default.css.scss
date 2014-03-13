@@ -16,7 +16,7 @@ a:hover {
 }
 
 .container > header {
-	padding: 2.875em 1.875em 1.875em;
+	padding: 1em;
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
@@ -36,47 +36,13 @@ a:hover {
 	font-weight: 100;
 	text-transform: uppercase;
 	letter-spacing: 0.5em;
-	padding: 0 0 0.6em 0.1em;
+	padding: 0 0 0.1em 0.1em;
 	font-size: 2.125em;
 }
 
 .container > header nav {
 	float: right;
 }
-
-/*.container > header nav a {
-	display: block;
-	float: left;
-	position: relative;
-	width: 2.5em;
-	height: 2.5em;
-	background: #fff;
-	border-radius: 50%;
-	color: transparent;
-	margin: 0 0.1em;
-	border: 4px solid #fff;
-	text-indent: -8000px;
-}
-
-.container > header nav a:after {
-	content: attr(data-info);
-	color: #fff;
-	position: absolute;
-	width: 600%;
-	top: 120%;
-	text-align: right;
-	right: 0;
-	opacity: 0;
-	pointer-events: none;
-}
-
-.container > header nav a:hover:after {
-	opacity: 1;
-}
-
-.container > header nav a:hover {
-	background: #47a3da;
-}*/
 
 .icon-drop:before,
 .icon-arrow-left:before {
