@@ -3,3 +3,9 @@ $white: #fff;
 $light-gray: #E5DCCF;
 $med-gray: #A6A899;
 $dark-gray: #84857E;
+$base-font-size: 16px;
+
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em;
+}
+

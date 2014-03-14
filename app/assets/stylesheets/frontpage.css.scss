@@ -26,9 +26,9 @@
 .delivery {
   @extend .intro;
   color: #fff;
-  font-size: 72px;
+  font-size: em(72px);
   line-height: 70px;
-  top: 30%;
+  top: 25%;
   font-weight: 400;
   /* Desktops and laptops */
   @media only screen

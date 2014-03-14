@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @subscription = @user.subscription
   end
 
   def new

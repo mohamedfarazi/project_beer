@@ -1,17 +1,27 @@
-<div id="nav">
-  <%= link_to "Home", root_path %> |
-  <% if current_user %>
-    <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
-    <%= link_to "Logout", :logout, method: :post %>
-    <% if current_user.admin %>
-     | <%= link_to "Admin Dashboard", admin_dashboard_index_path %>
-    <% end %>
-  <% else %>
-    <%= link_to "Register", new_user_path %> |
-    <%= link_to "Login", :login %>
-  <% end %>
-</div>
-<div>
+<header>
+    <div class="frame">
+      <div class="col2">
+        <h1 class="site-title"><%= link_to "Project Beer", :root %></h1>
+      </div>
+      <div class="col2">
+      <br>
+        <h4 class="main-nav">
+          <% if current_user %>
+            <%= link_to "Your Profile", user_path(current_user.id) %> |
+            <%= link_to "Logout", :logout, method: :post %>
+            <% if current_user.admin %>
+             | <%= link_to "Admin Dashboard", admin_dashboard_index_path %>
+            <% end %>
+          <% else %>
+            <%= link_to "Register", new_user_path %> |
+            <%= link_to "Login", :login %>
+          <% end %>
+       </h4>
+    </div>
+    </div>
+  </header>
+<div class="frame">
+  <% if flash[:notice] %>
   <p id="notice"><%= flash[:notice] %></p>
-  <p id="alert"><%= flash[:alert] %></p>
+  <% end %>
 </div>

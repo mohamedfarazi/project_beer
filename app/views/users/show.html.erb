@@ -1,34 +1,21 @@
 <%= render 'users/navigation' %>
-<p>
-  <strong>Name:</strong>
-  <%= @user.contact_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Postal Code:</strong>
-  <%= @user.postal_code %>
-</p>
-
-<p>
-  <strong>Phone Number:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Company Name:</strong>
-  <%= @user.company_name %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', :back %>
+<div class="wrapper">
+  <div class="frame">
+    <div class="padded-div">
+      <% if @user.subscription %>
+        <h2 class="light-heading">Your subscription:</h2>
+        <%= render 'shared/subscription_details' %>
+      <% else %>
+        <h2>You haven't subscribed to a plan yet</h2>
+        <div class="padded-div">
+              <button class="button"><%= link_to "Subscribe" , new_subscription_path %></button>
+        </div>
+      <% end %>
+      </div>
+      <div class="padded-div">
+      <h2 class="light-heading">Your account details:</h2>
+      <%= render 'shared/user_details' %>
+    </div>
+    <p class="navigation-links"><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', :back %><p>
+  </div>
+</div>
