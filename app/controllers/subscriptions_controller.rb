@@ -4,13 +4,9 @@ class SubscriptionsController < ApplicationController
 	skip_before_filter :require_login, only:[:new]
 
 	def index
-		# NJ: the singular here is temporary. Needs to be rewritten to show all user's subscription (active/inactive) once Mo's summary logic is sorted out
-		@subscription = current_user.subscription
 	end
 
 	def show
-		# NJ: the singular here is temporary. Needs to be rewritten to show all user's subscription (active/inactive) once Mo's summary logic is sorted out
-		@subscription = current_user.subscription
 	end
 
 	def new

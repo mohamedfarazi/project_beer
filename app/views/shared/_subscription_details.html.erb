@@ -1,0 +1,18 @@
+<table>
+	<tr>
+		<th class="table-headers">Frequency:</th>
+		<td><%=@subscription.plan.name %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Quantity:</th>
+		<td>6 x <%=@subscription.n_packs %> = <%= 6 * @subscription.n_packs%> beers</td>
+	</tr>
+	<tr>
+		<th class="table-headers">Begins:</th>
+		<td><%= @subscription.first_delivery_date.strftime("%a. %b %-d, %Y") %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Next scheduled delivery:</th>
+		<td><%= (next_delivery).strftime("%a. %b %-d, %Y") %></td>
+	</tr>
+</table>

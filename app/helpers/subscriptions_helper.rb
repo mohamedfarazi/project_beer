@@ -17,5 +17,15 @@ module SubscriptionsHelper
 
 	end
 
+	def next_delivery
+			# 1. set next_date to their first first_delivery_date
+			next_date = @subscription.first_delivery_date
+			# 2. keep adding their plan's freq interval until next_date is no longer in the past
+			while next_date < Date.today do
+				next_date += eval(@subscription.plan.freq)
+			end
+			# 3. if their next_date is this_friday, add them to the list of this week's deliveries
+			next_date
+	end
 
 end

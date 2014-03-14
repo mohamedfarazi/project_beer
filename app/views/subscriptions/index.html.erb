@@ -1,9 +1,0 @@
-<%= render 'users/navigation' %>
-<% if current_user.subscription %>
-	<h4>Your subscription:</h4>
-	<p>Frequency: <%=@subscription.plan.name %></p>
-	<p>Quantity: 6 x <%=@subscription.n_packs %> = <%= 6 * @subscription.n_packs%> beers</p>
-	<p>Begins on: <%= @subscription.first_delivery_date %></p>
-<% else %>
-	<h4>You have no active subscriptions</h4>
-<% end %>
