@@ -40,6 +40,15 @@ body {
 	background-color: $orange;
 }
 
+.wrapper {
+    height:     auto;       /* These two lines were the key. */
+    min-height: 100%;
+    margin:     0px auto;
+    padding:    0px auto;
+    background-color: $white;
+    width: 1100px;
+ }
+
 .frame {
 	width: 1100px;
 	margin: 0 auto; /*this will center*/
@@ -55,6 +64,7 @@ body {
 
 .tc {
 	text-align: center;
+	margin: auto;
 }
 
 .form-label {
@@ -63,8 +73,70 @@ body {
 
 select {
 	@extend body;
-	background-color: $white;
+	background-color: $light-gray;
 	font-style: italic;
-	border: dashed 1px $orange;
-	margin-top: 20px;
+	border: solid 1px $orange;
+	margin: 10px 0 20px 0;
+	min-width: 225px;
+}
+
+.padded-div {
+	padding: 20px;
+}
+
+.upborder-div {
+	@extend tc;
+	padding-top: 5px;
+	border-top: solid 1px;
+	border-color: $light-gray;
+	width: 80%;
+	margin:auto;
+}
+
+.table-headers {
+	color: $orange;
+	padding: 2px 10px 1px 0;
+	text-align: left;
+	min-width: 200px;
+}
+
+.main-nav {
+	background-color: $orange;
+	float: right;
+	a, a:visited {
+		text-decoration: none;
+		color: $white;
+		}
+	a:hover {
+		text-decoration: underline;
+	}
+	#notice {
+		text-align: right;
+	}
+}
+
+.site-title {
+	a, a:visited {
+		text-decoration: none;
+		color: $white;
+		}
+	a:hover {
+		text-decoration: none;
+}
+}
+
+.light-heading {
+	color: $med-gray;
+}
+
+.navigation-links {
+	float: right;
+	padding: 0 5px;
+	a, a:visited {
+		text-decoration: none;
+		color: $orange;
+		}
+	a:hover {
+	text-decoration: underline;
+	}
 }

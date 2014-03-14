@@ -9,7 +9,7 @@ skip_before_filter :require_login, except:[:destroy]
       if @user.admin
         redirect_to admin_dashboard_index_path
       else
-        redirect_back_or_to(:root, notice: 'Login successful')
+        redirect_back_or_to(user_path(@user), notice: 'Login successful')
       end
     else
       flash.now[:alert] = "Login failed"
@@ -19,6 +19,6 @@ skip_before_filter :require_login, except:[:destroy]
 
   def destroy
     logout
-    redirect_to(:root, notice: 'Logged out!')
+    redirect_to(goodbye_path, notice: 'Logged out!')
   end
 end

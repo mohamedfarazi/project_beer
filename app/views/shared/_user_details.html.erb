@@ -1,0 +1,23 @@
+<table>
+	<tr>
+		<th class="table-headers">Company:</th>
+		<td><%=@user.company_name %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Contact name:</th>
+		<td><%=@user.contact_name %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Email:</th>
+		<td><%=@user.email %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Phone number:</th>
+		<td><%=@user.phone %></td>
+	</tr>
+	<tr>
+		<th class="table-headers">Address:</th>
+		<td><%=@user.address %>, Toronto, ON, <%= @user.postal_code %></td>
+	</tr>
+
+</table>
