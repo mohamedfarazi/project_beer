@@ -64,6 +64,7 @@ body {
 
 .tc {
 	text-align: center;
+	margin: auto;
 }
 
 .form-label {
@@ -86,7 +87,7 @@ select {
 .upborder-div {
 	@extend tc;
 	padding-top: 5px;
-	border-top: dotted 1px;
+	border-top: solid 1px;
 	border-color: $light-gray;
 	width: 80%;
 	margin:auto;

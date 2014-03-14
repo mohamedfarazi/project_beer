@@ -30,3 +30,34 @@
 <% end %>
 
 <!-- ('input:radio:checked').val(); -->
+<div class="row">
+<%= form_for @subscription do |f| %>
+	<%= render partial: "shared/form_errors", locals: {thing: @subscription} %>
+	<h4>Select frequency of delivery</h4>
+	<% @plans.each do |plan| %>
+		<%= label_tag nil, :class => 'block' do %>
+		<!--The below code references the subscription model, and associates the radio button ID to each button. This is needed because they reside in different models-->
+			<%= radio_button_tag('subscription[plan_id]', plan[:id], false, { :data => { :price => plan.amount_in_cents.to_f / 100.0} }) %>
+			<%= "#{plan.name} // #{number_to_currency(plan[:amount_in_cents].to_f / 100.0)} Monthly Fee" %>
+		<% end %>
+	<% end %>
+
+	<h4>Select quantity</h4>
+
+		<div class="large-12 columns">
+			<%= f.select :n_packs, options_for_select((1..10)), :prompt => "Number of 6-packs" %>
+		</div>
+
+	<h4>Select date of first delivery</h4>
+	<div class="large-12 columns">
+	<%= f.select :first_delivery_date, options_for_select(fridays_dropdown.map{ |f| [f.strftime("%a. %b %-d, %Y")] }), :prompt => "Choose an upcoming Friday"%>
+	</div>
+
+	<div id="stripe-checkout" class="small-3 small-centered columns">
+		<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-description="A month's subscription"
+		data-amount= "45454545" data-email="<%= current_user.email %>"></script>
+	</div>
+<% end %>
+</div>
