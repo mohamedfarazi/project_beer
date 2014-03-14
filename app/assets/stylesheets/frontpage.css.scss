@@ -43,8 +43,8 @@
   /* iPads (portrait and landscape) ----------- */
 
   @media only screen
-  and (min-device-width : 768px)
-  and (max-device-width : 1024px) {
+  and (min-width : 768px)
+  and (max-width : 1024px) {
   font-size: 16px;
   }
 
@@ -61,11 +61,13 @@ top: 40%;
   color: $white;
   top: 40%;
   font-size: 3em;
+
   /* Desktops and laptops */
   @media only screen
   and (min-width : 1224px) {
   font-size: 2em;
   }
+
   @media only screen
   and (min-width : 1600px) {
   font-size: 72px;
@@ -78,4 +80,8 @@ top: 40%;
   top: 50%;
   position: absolute;
   color: $white;
+}
+
+.brewers {
+  font-size: em(24px)
 }
