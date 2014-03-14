@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	if ( $('#cbp-fbscroller') ) {
+	if ( $('#cbp-fbscroller').length ) { // document.getElementById('cbp-fbscroller')
 		var options = {
 			// the cbp-fbscroller's sections
 			$sections : $( '#cbp-fbscroller > section' ),
