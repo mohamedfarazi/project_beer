@@ -10,7 +10,11 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def new
-		@subscription = Subscription.new
+		if !current_user || current_user.area
+			@subscription = Subscription.new
+		else
+			redirect_to user_path(current_user)
+		end
 	end
 
 	def create
@@ -32,7 +36,7 @@ class SubscriptionsController < ApplicationController
 
 		if @subscription.save
 			UserMailer.subscription_confirm(current_user).deliver
-			redirect_to subscription_path(@subscription)
+			redirect_to user_path(current_user)
 
 			# redirect_to subscription_path(@subscription), :notice => "Success!"
 		else
