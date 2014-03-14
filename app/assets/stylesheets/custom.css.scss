@@ -40,6 +40,15 @@ body {
 	background-color: $orange;
 }
 
+.wrapper {
+    height:     auto;       /* These two lines were the key. */
+    min-height: 100%;
+    margin:     0px auto;
+    padding:    0px auto;
+    background-color: $white;
+    width: 1100px;
+ }
+
 .frame {
 	width: 1100px;
 	margin: 0 auto; /*this will center*/
