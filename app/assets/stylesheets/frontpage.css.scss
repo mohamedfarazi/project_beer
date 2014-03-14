@@ -53,7 +53,23 @@
 
 .plans {
 @extend .intro;
-top: 40%;
+top: 35%;
+}
+
+.dates {
+  font-size: em(12px);
+  line-height: em(24px);
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.learnmore {
+  color: $white;
+  text-decoration: none;
+}
+
+.learnmore:hover {
+  color: $orange;
 }
 
 .centeralign {
@@ -70,18 +86,19 @@ top: 40%;
 
   @media only screen
   and (min-width : 1600px) {
-  font-size: 72px;
+  font-size: em(72px);
   }
 }
 
 .wrap {
   width: 90%;
-  margin: 0 auto; /*this will center*/
+  margin: 0 auto;
   top: 50%;
   position: relative;
   color: $white;
 }
 
+
 .brewers {
-  font-size: em(24px)
+  font-size: em(30px)
 }

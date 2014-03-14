@@ -2,11 +2,16 @@
 <div class="wrapper">
   <div class="frame">
     <div class="padded-div">
-      <% if @user.subscription %>
+      <% if flash[:alert] %>
+      <p id="alert"><%= flash[:alert] %></p>
+      <% end %>
+      <% if !@user.area %>
+        <h2 class="light-heading">We're sorry but you are currently outside the delivery area. But fear not! We will contact you when we have expanded to your area.</h2>
+      <% elsif @user.subscription %>
         <h2 class="light-heading">Your subscription:</h2>
         <%= render 'shared/subscription_details' %>
       <% else %>
-        <h2>You haven't subscribed to a plan yet</h2>
+        <h2 class="light-heading">No beer for you! You haven't subscribed to a plan yet.</h2>
         <div class="padded-div">
               <button class="button"><%= link_to "Subscribe" , new_subscription_path %></button>
         </div>

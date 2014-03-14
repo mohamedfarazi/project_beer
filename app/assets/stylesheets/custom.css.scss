@@ -130,7 +130,8 @@ select {
 }
 
 .navigation-links {
-	float: right;
+	// float: right;
+	margin: auto;
 	padding: 0 5px;
 	a, a:visited {
 		text-decoration: none;
@@ -139,4 +140,8 @@ select {
 	a:hover {
 	text-decoration: underline;
 	}
+}
+
+#alert {
+	color: $orange;
 }

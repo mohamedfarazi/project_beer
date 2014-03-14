@@ -1,25 +1,35 @@
 <%= render 'users/navigation' %>
-<h2>Hi, <%= current_user.contact_name %></h2>
-<div>
-<h4> <%= link_to count_new_users, admin_users_recent_path %> new users registered in the past week</h4>
-<p> <%= link_to count_all_users, admin_users_path %> users total (excluding admins)</p>
+<div class="wrapper">
+<div class="frame">
+<div class="col2 padded-div">
+<h2 class="light-heading upborder-div">Hi, <%= current_user.contact_name %></h2>
+<div class="upborder-div">
+<h4 class="navigation-links"> <%= link_to count_new_users, admin_users_recent_path %> new users registered in the past week</h4>
+<p class="navigation-links"> <%= link_to count_all_users, admin_users_path %> users total (excluding admins)</p>
 </div>
 
-<div>
-<h4> <%= link_to count_new_subs, admin_subscriptions_recent_path   %> new subscriptions set up in the past week </h4>
-<p> <%= link_to count_all_subs, admin_subscriptions_path %> total active subscriptions: <%= count_w_subs %> weekly, <%= count_b_subs %> bi-weekly and <%= count_m_subs  %> monthly </p>
+<div class="upborder-div">
+<h4 class="navigation-links"> <%= link_to count_new_subs, admin_subscriptions_recent_path   %> new subscriptions set up in the past week </h4>
+<p class="navigation-links"> <%= link_to count_all_subs, admin_subscriptions_path %> total active subscriptions: <%= count_w_subs %> weekly, <%= count_b_subs %> bi-weekly and <%= count_m_subs  %> monthly </p>
 </div>
 
 
-<div>
-<h4> <%= link_to upcoming_deliveries.length, admin_deliveries_manifest_create_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
-<p> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)<button type="button"><%= link_to "Generate manifest", admin_deliveries_manifest_create_path %></button></p>
+<div class="upborder-div">
+<h4 class="navigation-links"> <%= link_to upcoming_deliveries.length, admin_deliveries_manifest_create_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
+<p class="navigation-links"> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)</p>
+<div class="padded-div">
+<button class="small-button"><%= link_to "Generate manifest", admin_deliveries_manifest_create_path %></button>
+</div>
 </div>
 
-<div>
-	<p>Or view an earlier manifest:</p>
+<div class="upborder-div">
+	<p class="navigation-links">Or view an earlier manifest:</p>
 	<%= form_tag 'deliveries/manifest', method: :get do %>
 		<%= select_tag :expected_date, options_for_select(past_delivery_dates.map{ |f| [f.strftime("%a. %b %-d, %Y"), f] })%>
-		<%= submit_tag "Go" %>
+		<%= submit_tag "Go", class: 'small-button' %>
 		<% end %>
+</div>
+
+</div>
+</div>
 </div>

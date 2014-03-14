@@ -8,7 +8,7 @@
 
 #------------------------------REAL SEEDS --------------------------------------
 # These are the actual plans that need to be seeded into the DB when implementing for realz
-# plans = Plan.create([{name: 'Weekly', freq: '1.week', amount_in_cents: 24000},{name: 'Bi-weekly', freq: '2.weeks', amount_in_cents: 12000},{name: 'Monthly', freq: '1.month', amount_in_cents: 6000} ])
+plans = Plan.create([{name: 'Weekly', freq: '1.week', amount_in_cents: 24000},{name: 'Bi-weekly', freq: '2.weeks', amount_in_cents: 12000},{name: 'Monthly', freq: '1.month', amount_in_cents: 6000} ])
 
 
 

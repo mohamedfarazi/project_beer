@@ -2,47 +2,51 @@
 
  <%= render partial: "shared/form_errors", locals: {thing: @user} %>
 
-  <div class="field">
+  <p class="form-label">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+    <%= f.text_field :email, size:30 %>
+  </p>
 
-  <div class="field">
-    <%= f.label :address, "Street Address" %><br>
-    <%= f.text_field :address %>
-  </div>
+  <p class="form-label">
+    <%= f.label :contact_name, "Name" %><br>
+    <%= f.text_field :contact_name, size:30 %>
+  </p>
 
-  <div class="field">
-    <%= f.label :postal_code %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contact_name %><br>
-    <%= f.text_field :contact_name %>
-  </div>
-
-  <div class="field">
+  <p class="form-label">
     <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
-  </div>
+    <%= f.text_field :company_name, size:30 %>
+  </p>
 
-  <div class="field">
+  <p class="form-label">
+    <%= f.label :address, "Street address in Toronto, ON" %><br>
+    <%= f.text_field :address, size:30 %>
+  </p>
+
+  <p class="form-label">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code, size:20 %>
+  </p>
+
+  <p class="form-label">
+    <%= f.label :phone, "Phone number" %><br>
+    <%= f.text_field :phone, size:20 %>
+  </p>
+
+  <p class="form-label">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
+    <%= f.password_field :password, size:20 %>
+  </p>
 
-  <div class="field">
+  <p class="form-label">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+    <%= f.password_field :password_confirmation, size:20 %>
+  </p>
 
-  <div class="actions">
-    <%= f.submit %>
+
+  <p class="form-label">
+    <%= f.submit "Register", class: 'button' %>
+  </p>
+  <div class="form-label">
+  <h4 class="navigation-links">Already have an account? <%= link_to "Login", new_user_session_path %></h4>
   </div>
 <% end %>
