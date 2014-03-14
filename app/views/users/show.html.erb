@@ -6,7 +6,7 @@
         <h2 class="light-heading">Your subscription:</h2>
         <%= render 'shared/subscription_details' %>
       <% else %>
-        <h2>You haven't subscribed to a plan yet</h2>
+        <h2>No beer for you! You haven't subscribed to a plan yet.</h2>
         <div class="padded-div">
               <button class="button"><%= link_to "Subscribe" , new_subscription_path %></button>
         </div>
