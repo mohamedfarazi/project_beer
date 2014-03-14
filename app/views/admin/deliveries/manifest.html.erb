@@ -1,5 +1,9 @@
-<h4>Delivery manifest for <%= params[:expected_date]%></h4>
-
+<%= render 'users/navigation' %>
+<div class="wrapper">
+<div class="frame">
+<div class="padded-div">
+<h2 class="light-heading">Delivery manifest for <%= params[:expected_date]%></h2>
+<div class="main-content small-text">
 <%= form_tag admin_deliveries_manifest_path do |f| %>
   <table>
     <thead>
@@ -10,7 +14,7 @@
         <th>Contact name</th>
         <th>Special instructions</th>
         <th># packs</th>
-        <th><%= check_box_tag "selectAll" %>Check / Uncheck All</th>
+        <th><%= check_box_tag "selectAll" %>All</th>
       </tr>
     </thead>
 
@@ -25,18 +29,20 @@
           <td><%= delivery.subscription.n_packs %></td>
           <td>
             <%= hidden_field_tag "delivery[#{delivery.id}][delivered]", 0 %>
-        		<%= check_box_tag "delivery[#{delivery.id}][delivered]", 1, delivery.delivered %>
+            <%= check_box_tag "delivery[#{delivery.id}][delivered]", 1, delivery.delivered %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <%= submit_tag "Checked items have been delivered" %>
+  <p class="form-label"><%= submit_tag "Checked items have been delivered", class: 'small-button' %></p>
 <% end %>
-<%= link_to 'Back', :back %>
-
-
+</div>
+<p class="navigation-links"><%= link_to 'Back', :back %></p>
+</div>
+</div>
+</div>
 
 <script type='text/javascript'>
     $('#selectAll').click(function() {

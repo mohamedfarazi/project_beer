@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	skip_before_filter :require_login, :only =>[:goodbye, :welcome]
+	skip_before_filter :require_login
 	def denied
 	end
 

@@ -85,12 +85,10 @@ select {
 }
 
 .upborder-div {
-	@extend tc;
 	padding-top: 5px;
 	border-top: solid 1px;
 	border-color: $light-gray;
 	width: 80%;
-	margin:auto;
 }
 
 .table-headers {
@@ -144,4 +142,9 @@ select {
 
 #alert {
 	color: $orange;
+}
+
+.small-text {
+	font-family: Courier, Arial, sans-serif;
+	font-size: 80%;
 }
