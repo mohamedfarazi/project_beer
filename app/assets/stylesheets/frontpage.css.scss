@@ -26,7 +26,7 @@
 .delivery {
   @extend .intro;
   color: #fff;
-  font-size: 72px;
+  font-size: em(72px);
   line-height: 70px;
   top: 25%;
   font-weight: 400;
@@ -34,6 +34,18 @@
 }
 
 .plans {
-@extend .intro;
-top: 40%;
+  @extend .intro;
+  top: 40%;
+}
+
+@media (max-width: 600px) {
+  .delivery {
+    font-size: 1.5em;
+    line-height: 1.1;
+  }
+
+  .work {
+    font-size: 3em;
+  }
+
 }
