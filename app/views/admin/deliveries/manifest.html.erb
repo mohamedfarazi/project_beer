@@ -8,13 +8,12 @@
   <table>
     <thead>
       <tr>
-        <th>Company</th>
-        <th>Address</th>
-        <th>Phone #</th>
-        <th>Contact name</th>
-        <th>Special instructions</th>
-        <th># packs</th>
-        <th><%= check_box_tag "selectAll" %>All</th>
+        <th class="table-headers">Company</th>
+        <th class="table-headers">Address</th>
+        <th class="table-headers">Phone #</th>
+        <th class="table-headers">Contact name</th>
+        <th class="table-headers"># packs</th>
+        <th class="table-headers"><%= check_box_tag "selectAll" %>All</th>
       </tr>
     </thead>
 
@@ -25,7 +24,6 @@
           <td><%= delivery.user.address %></td>
           <td><%= delivery.user.phone %></td>
           <td><%= delivery.user.contact_name %></td>
-          <td></td>
           <td><%= delivery.subscription.n_packs %></td>
           <td>
             <%= hidden_field_tag "delivery[#{delivery.id}][delivered]", 0 %>

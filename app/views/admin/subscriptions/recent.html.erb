@@ -1,6 +1,14 @@
 <%= render 'users/navigation' %>
-<%= link_to 'Back', :back %> | <%= link_to "All subscriptions", admin_subscriptions_path %>
-
-<h2>Recently set up: <%= count_new_subs %> subscriptions since <%= (Date.today - 1.week).strftime("%b %-d, %Y") %> </h2>
-
+<div class="wrapper">
+<div class="frame">
+<div class="padded-div">
+<div>
+<p class="navigation-links"><%= link_to 'Back', :back %> | <%= link_to "All subscriptions", admin_subscriptions_path %></p>
+</div>
+<h2 class="light-heading">Recently set up: <%= count_new_subs %> subscriptions since <%= (Date.today - 1.week).strftime("%b %-d, %Y") %> </h2>
+<div class="main-content small-text">
 <%= render 'subs_table' %>
+</div>
+</div>
+</div>
+</div>
