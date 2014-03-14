@@ -28,6 +28,7 @@
 
 /*Module stylesheets (at this level order should't matter. if anything in module styles conflics with one another, that should be pulled out into the global level). */
 @import 'subscriptions';
+@import 'frontpage';
 
 /*Admin stylesheets (might move these to an admin-only manifest). */
 
