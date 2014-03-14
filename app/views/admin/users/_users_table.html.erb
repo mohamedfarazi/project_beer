@@ -1,13 +1,12 @@
 <table>
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Company</th>
-      <!-- NJ note: replace with nickname later -->
-      <th>Contact name</th>
-      <th>Created at</th>
-      <th>Activation state</th>
-      <th>Admin</th>
+      <th class="table-headers-sm">Email</th>
+      <th class="table-headers-sm">Company</th>
+      <th class="table-headers-sm">Contact name</th>
+      <th class="table-headers-sm">Created</th>
+      <th class="table-headers-sm">Activation state</th>
+      <th class="table-headers-sm">Admin</th>
     </tr>
   </thead>
 
@@ -17,12 +16,10 @@
         <td><%= user.email %></td>
         <td><%= user.company_name %></td>
         <td><%= user.contact_name %></td>
-        <td><%= user.created_at.localtime.strftime ("%b %-d, %Y %I:%M %P") %></td>
+        <td><%= user.created_at.localtime.strftime ("%F") %></td>
         <td><%= user.activation_state %></td>
         <td><%= user.admin %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="navigation-links"><%= link_to 'Show', user %>|<%= link_to 'Edit', edit_user_path(user) %>|<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

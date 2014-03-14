@@ -85,12 +85,10 @@ select {
 }
 
 .upborder-div {
-	@extend tc;
 	padding-top: 5px;
 	border-top: solid 1px;
 	border-color: $light-gray;
 	width: 80%;
-	margin:auto;
 }
 
 .table-headers {
@@ -98,6 +96,19 @@ select {
 	padding: 2px 10px 1px 0;
 	text-align: left;
 	min-width: 200px;
+}
+
+.table-headers-sm {
+	color: $orange;
+	padding: 2px 10px 1px 0;
+	text-align: left;
+	min-width: 120px;
+}
+
+.table-headers-color {
+	color: $orange;
+	padding: 2px 10px 1px 0;
+	text-align: left;
 }
 
 .main-nav {
@@ -144,4 +155,9 @@ select {
 
 #alert {
 	color: $orange;
+}
+
+.small-text {
+	font-family: Courier, Arial, sans-serif;
+	font-size: 80%;
 }

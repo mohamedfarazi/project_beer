@@ -13,7 +13,7 @@
       <% else %>
         <h2 class="light-heading">No beer for you! You haven't subscribed to a plan yet.</h2>
         <div class="padded-div">
-              <button class="button"><%= link_to "Subscribe" , new_subscription_path %></button>
+              <p class="button"><%= link_to "Subscribe", new_subscription_path %></p>
         </div>
       <% end %>
       </div>
@@ -21,6 +21,8 @@
       <h2 class="light-heading">Your account details:</h2>
       <%= render 'shared/user_details' %>
     </div>
-    <p class="navigation-links"><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', :back %><p>
+    <div class="padded-div">
+    <p class="navigation-links"><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', :back %></p>
+    </div>
   </div>
 </div>
