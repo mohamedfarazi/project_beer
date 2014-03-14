@@ -68,14 +68,18 @@ top: 40%;
   }
   @media only screen
   and (min-width : 1600px) {
-  font-size: 72px;
+  font-size: em(72px);
   }
 }
 
 .wrap {
-  width: 1100px;
-  margin: 0 auto; /*this will center*/
+  width: 90%;
+  margin: 0 auto; 
   top: 50%;
-  position: absolute;
+  position: relative;
   color: $white;
+}
+
+#fbsection5 > .wrap > .col3 > dt {
+  font-size: 20px;
 }
