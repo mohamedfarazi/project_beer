@@ -14,6 +14,7 @@
   top: 60%;
   max-width: 80%;
   margin-left: 10%;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7)
 }
 
 #map-canvas {
@@ -26,6 +27,7 @@
 .delivery {
   @extend .intro;
   color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
   font-size: em(72px);
   line-height: 70px;
   top: 25%;
@@ -43,17 +45,33 @@
   /* iPads (portrait and landscape) ----------- */
 
   @media only screen
-  and (min-device-width : 768px)
-  and (max-device-width : 1024px) {
+  and (min-width : 768px)
+  and (max-width : 1024px) {
   font-size: 16px;
   }
-
 
 }
 
 .plans {
 @extend .intro;
-top: 40%;
+top: 35%;
+text-shadow: 1px 1px 1px rgba(0,0,0,0.7)
+}
+
+.dates {
+  font-size: em(12px);
+  line-height: em(24px);
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.learnmore {
+  color: $white;
+  text-decoration: none;
+}
+
+.learnmore:hover {
+  color: $orange;
 }
 
 .centeralign {
@@ -61,11 +79,14 @@ top: 40%;
   color: $white;
   top: 40%;
   font-size: 3em;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+
   /* Desktops and laptops */
   @media only screen
   and (min-width : 1224px) {
   font-size: 2em;
   }
+
   @media only screen
   and (min-width : 1600px) {
   font-size: em(72px);
@@ -74,12 +95,33 @@ top: 40%;
 
 .wrap {
   width: 90%;
-  margin: 0 auto; 
+  margin: 0 auto;
   top: 50%;
   position: relative;
   color: $white;
 }
 
-#fbsection5 > .wrap > .col3 > dt {
-  font-size: 20px;
+
+.brewers {
+  font-size: em(40px);
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+
+}
+
+.beers {
+ color: $white;
+ width: 100%;
+ top: 30%;
+ font-size: em(100px);
+ left: 35%;
+ margin: 0 auto;
+ position: relative;
+ text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+}
+
+.brewers-list > dd {
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  font-size: em(23px);
 }
