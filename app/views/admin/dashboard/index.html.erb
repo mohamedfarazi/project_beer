@@ -15,7 +15,9 @@
 
 
 <div class="upborder-div">
+
 <h4 class="navigation-links"> <%= link_to upcoming_deliveries.length, admin_deliveries_manifest_create_path  %> deliveries scheduled for this <%=this_friday.strftime("%A %b %-d, %Y")%></h4>
+
 <p class="navigation-links"> <%= upcoming_totals(upcoming_deliveries) %> packs to be delivered (<%= upcoming_totals(upcoming_deliveries) * 6 %> bottles total)</p>
 <div class="padded-div">
 <button class="small-button"><%= link_to "Generate manifest", admin_deliveries_manifest_create_path %></button>
